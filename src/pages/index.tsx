@@ -5,9 +5,9 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>Apparel</title>
+        <title>Nossa Casa</title>
       </Head>
-      <Home title="ALOOOOOOO" />
+      <Home />
     </>
   );
 }

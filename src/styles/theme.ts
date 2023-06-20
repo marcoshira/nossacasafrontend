@@ -1,22 +1,23 @@
 export const theme = {
   colors: {
-    primaryColor: 'hsl(0, 36%, 70%)',
-    secondaryColor: 'hsl(0, 93%, 68%)',
+    primary: '7DBBC3',
+    secondary: ' #fdd09c',
+    autumn: '#E09F3E',
+    backgroundwhite: '#EBEBEB',
     neutral: 'hsl(0, 6%, 24%)',
     white: '#FFFFFF',
     mediumGray: '#DDDDDD',
     crimson: 'crimson',
     blue: 'rgb(36, 36, 209)',
     navy: '#0A1128',
-    black: '#000000',
+    black: '#1F2232',
     pink: 'rgb(231, 171, 181)',
     purple: 'rgb(133, 21, 133)',
     orange: 'rgb(230, 159, 28)',
     green: 'rgb(29, 161, 29)',
-    lightBlue: 'rgb(146, 195, 211)',
     yellow: 'rgb(207, 207, 45)',
     brown: 'rgb(116, 45, 45)',
-    grey: '#DDDDDD',
+    darkgrey: '#919191',
   },
   font: {
     family: {
@@ -44,7 +45,7 @@ export const theme = {
     lteSmall: '(max-width: 440px)',
     gteSmall: '(min-width: 440px)',
     mobile: '(max-width: 440px)',
-    ipad: '(max-width: 1023px)',
+    ipad: '(min-width: 441px)',
     monitor: '(min-width: 1540px)',
   },
   spacings: {

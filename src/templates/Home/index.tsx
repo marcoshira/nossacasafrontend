@@ -1,16 +1,10 @@
-import { Header } from '@/components/Header';
+import { Login } from '../Login';
 import * as Styled from './styles';
-import { Content } from '@/components/Content';
-import { Hero } from '@/components/Hero';
 
-export type HomeProps = {
-  title?: string;
-};
-export const Home = ({ title }: HomeProps) => {
+export const Home = () => {
   return (
     <Styled.Home>
-      <Content />
-      <Hero />
+      <Login />
     </Styled.Home>
   );
 };

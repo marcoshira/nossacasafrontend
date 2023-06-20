@@ -2,7 +2,14 @@ import Image from 'next/image';
 import * as Styled from './styles';
 import { useState } from 'react';
 
-export const Input = () => {
+export type InputProps = {
+  placeholder?: string;
+  type?: string;
+  OnChange?: (value: string) => void;
+  child?: React.ReactElement;
+};
+
+export const Input = ({ OnChange, placeholder, type, child }: InputProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleChange = (val: string) => {
@@ -23,20 +30,13 @@ export const Input = () => {
 
   return (
     <Styled.Input>
+      {child}
       <input
-        placeholder="Email Address"
-        type="email"
-        onChange={(v) => setInputValue(v.target.value)}
+        placeholder={placeholder}
+        type={type}
+        onChange={() => OnChange}
         value={inputValue}
       />
-      <Styled.Button type="submit" onClick={() => emailValidator(inputValue)}>
-        <Image
-          src="./images/icon-arrow.svg"
-          alt="arrow"
-          width={17}
-          height={17}
-        />
-      </Styled.Button>
     </Styled.Input>
   );
 };

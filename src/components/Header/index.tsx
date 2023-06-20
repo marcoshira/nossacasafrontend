@@ -4,12 +4,8 @@ import * as Styled from './styles';
 export const Header = () => {
   return (
     <Styled.Header>
-      <Image
-        src="./images/logo.svg"
-        alt="Base Apparel Logo"
-        width={150}
-        height={30}
-      />
+      <Image src="/./images/cabin.svg" alt="cabin" width={50} height={50} />
+      <h2>Nossa Casa</h2>
     </Styled.Header>
   );
 };
