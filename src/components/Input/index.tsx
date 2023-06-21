@@ -1,30 +1,33 @@
 import Image from 'next/image';
 import * as Styled from './styles';
-import { useState } from 'react';
+import { InputHTMLAttributes, useRef, useState } from 'react';
 
 export type InputProps = {
   placeholder?: string;
   type?: string;
   OnChange?: (value: string) => void;
   child?: React.ReactElement;
-};
+  value?: string;
+  reference?: HTMLInputElement | null;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input = ({ OnChange, placeholder, type, child }: InputProps) => {
-  const [inputValue, setInputValue] = useState('');
+export const Input = ({
+  OnChange,
+  placeholder,
+  type,
+  child,
+  value = '',
+  reference = null,
+}: InputProps) => {
+  const inputRef = useRef(reference);
 
-  const handleChange = (val: string) => {
-    setInputValue(val);
-  };
-
-  const emailValidator = (val: string) => {
-    const validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-    if (val.match(validRegex)) {
-      alert('Email registered!');
-      setInputValue('');
-    } else {
-      alert('Invalid email address!');
+  const handleChange = () => {
+    if (inputRef.current) {
+      const value = inputRef.current.value;
+      /* istanbul ignore else */
+      if (OnChange) {
+        OnChange(value);
+      }
     }
   };
 
@@ -34,8 +37,9 @@ export const Input = ({ OnChange, placeholder, type, child }: InputProps) => {
       <input
         placeholder={placeholder}
         type={type}
-        onChange={() => OnChange}
-        value={inputValue}
+        onChange={handleChange}
+        ref={inputRef}
+        defaultValue={value}
       />
     </Styled.Input>
   );

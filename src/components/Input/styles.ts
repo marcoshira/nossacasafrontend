@@ -7,9 +7,9 @@ export const Input = styled.label`
     flex-direction: row;
     justify-content: left;
     align-items: bottom;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     background: ${theme.colors.mediumGray};
-    padding: 18px 20px;
+    padding: 22px 20px;
     width: 100%;
 
     /* @media ${theme.media.ipad} {

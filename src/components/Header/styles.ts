@@ -7,20 +7,20 @@ export const Header = styled.div`
     display: flex;
     flex-direction: row;
     align-items: bottom;
-    justify-content: center;
+    justify-content: left;
     width: 100%;
-    padding: 16px 0;
+    padding: 16px 20px;
 
     h2 {
-      margin-left: 4.5%;
-      margin-top: 3.5%;
+      margin-left: 3%;
+      margin-top: 5%;
       font-weight: 300;
       font-size: 38px;
     }
 
     img {
-      height: 50px;
-      width: 50px;
+      height: 55px;
+      width: 55px;
     }
 
     /* @media ${theme.media.monitor} {
