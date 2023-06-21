@@ -11,7 +11,7 @@ type AuthContextData = {
   signUp: (name: string, email: string, password: string) => Promise<void>;
 };
 
-type UserProps = {
+export type UserProps = {
   id: string;
   name: string;
   email: string;
@@ -79,7 +79,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-      // Router.push('/dashboard');
+      Router.push('/dashboard');
     } catch (err) {
       console.log(err);
     }

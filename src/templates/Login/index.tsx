@@ -5,6 +5,7 @@ import { Email } from '@styled-icons/material-outlined/Email';
 import { Password } from '@styled-icons/material-outlined/Password';
 import { Button } from '@/components/Button';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export type LoginProps = {
   onLogin?: (email: string, password: string) => Promise<void>;
@@ -35,10 +36,7 @@ export const Login = ({ onLogin }: LoginProps) => {
         setLoading(false);
         return;
       }
-      console.log(email, password);
       await onLogin(email, password);
-    } else {
-      console.log('else');
     }
     setLoading(false);
     setError('Email ou senha inválidos.');
@@ -69,7 +67,7 @@ export const Login = ({ onLogin }: LoginProps) => {
         <p className="error">{error && error}</p>
         <div className="footer">
           <p>Não tem uma conta?</p>
-          <a>Inscreva-se</a>
+          <Link href="/register">Inscreva-se</Link>
         </div>
       </Styled.LoginContentWrapper>
     </Styled.LoginWrapper>

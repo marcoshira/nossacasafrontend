@@ -5,7 +5,6 @@ export type ButtonProps = {
   title?: string;
   children?: React.ReactNode;
   disabled?: boolean;
-  color?: boolean;
   onClick?: (event: FormEvent<Element>) => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 export const Button = ({
