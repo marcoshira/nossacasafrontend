@@ -18,6 +18,11 @@ export const LoginContentWrapper = styled.div`
       font-size: 40px;
     }
 
+    .error {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
     .footer {
       position: absolute;
       bottom: 60px;

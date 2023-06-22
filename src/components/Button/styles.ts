@@ -13,6 +13,10 @@ export const ButtonWrapper = styled.button`
     letter-spacing: 4px;
     margin-top: 40px;
 
+    svg {
+      height: 40px;
+    }
+
     &:hover {
       font-size: 32px;
     }

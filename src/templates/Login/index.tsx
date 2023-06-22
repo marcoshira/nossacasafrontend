@@ -6,21 +6,12 @@ import { Password } from '@styled-icons/material-outlined/Password';
 import { Button } from '@/components/Button';
 import { useState } from 'react';
 import Link from 'next/link';
+import { emailValidator } from '@/utils/emailValidator';
 
 export type LoginProps = {
   onLogin?: (email: string, password: string) => Promise<void>;
 };
 export const Login = ({ onLogin }: LoginProps) => {
-  const emailValidator = (val: string) => {
-    const validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-    if (val.match(validRegex)) {
-      return true;
-    }
-    return false;
-  };
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,7 +23,7 @@ export const Login = ({ onLogin }: LoginProps) => {
     /* istanbul ignore else */
     if (onLogin) {
       if (email === '' || password === '' || emailValidator(email) === false) {
-        setError('Email ou senha inválidoss.');
+        setError('Email ou senha inválidos.');
         setLoading(false);
         return;
       }

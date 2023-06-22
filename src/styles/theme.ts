@@ -3,7 +3,7 @@ export const theme = {
     primary: '7DBBC3',
     secondary: ' #fdd09c',
     autumn: '#E09F3E',
-    darkautumn: 'B37F31',
+    darkautumn: '#B37F31',
     backgroundwhite: '#EBEBEB',
     neutral: 'hsl(0, 6%, 24%)',
     white: '#FFFFFF',

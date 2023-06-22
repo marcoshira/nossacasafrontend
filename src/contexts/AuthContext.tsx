@@ -2,6 +2,7 @@ import { destroyCookie, parseCookies, setCookie } from 'nookies';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import Router from 'next/router';
 import { api } from '../services/apiClient';
+import { Home } from '@/sharedTypes';
 
 type AuthContextData = {
   user: UserProps | undefined;
