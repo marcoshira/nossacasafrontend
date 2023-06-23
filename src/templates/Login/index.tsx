@@ -29,8 +29,10 @@ export const Login = ({ onLogin }: LoginProps) => {
       }
       await onLogin(email, password);
     }
-    setLoading(false);
-    setError('Email ou senha inválidos.');
+    setTimeout(() => {
+      setLoading(false);
+      setError('Email ou senha inválidos.');
+    }, 1000);
   };
   return (
     <Styled.LoginWrapper>

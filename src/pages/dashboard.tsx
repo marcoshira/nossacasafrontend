@@ -5,14 +5,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { setupAPIClient } from '../services/api';
 import { GetServerSidePropsContext } from 'next';
-import { Home } from '@/sharedTypes';
+import { Home, User } from '@/sharedTypes';
 import { DashBoard } from '@/templates/DashBoard';
 
 export type DashboardIndexProps = {
-  data: {
-    owned: Home[];
-    guest: Home[];
-  };
+  data: User;
 };
 
 export default function Index({ data }: DashboardIndexProps) {
@@ -32,7 +29,7 @@ export const getServerSideProps = canSSRAuth(
   async (ctx: GetServerSidePropsContext) => {
     const apiClient = setupAPIClient(ctx);
 
-    const response = await apiClient.get('/home');
+    const response = await apiClient.get('/user');
 
     return {
       props: {

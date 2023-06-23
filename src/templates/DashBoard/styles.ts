@@ -15,6 +15,32 @@ export const DashBoarContentdWrapper = styled.div`
   ${({ theme }) => css`
     padding: 0 5%;
 
+    .profile {
+      position: relative;
+      height: 180px;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      img {
+        border-radius: 50%;
+        transition: ${theme.transitions.fast};
+      }
+
+      svg {
+        height: 45px;
+        color: #6c7171;
+        position: absolute;
+        top: 5px;
+        right: 90px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        padding: 5px;
+        background: ${theme.colors.white};
+      }
+    }
+
     .subtitle {
       color: ${theme.colors.autumn};
       font-size: 28px;

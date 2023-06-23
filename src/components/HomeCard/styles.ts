@@ -31,5 +31,13 @@ export const HomeCardWrapper = styled.div<HouseType>`
       font-size: 36px;
       color: white;
     }
+
+    svg {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      height: 45px;
+      color: white;
+    }
   `}
 `;
