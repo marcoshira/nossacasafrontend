@@ -8,7 +8,8 @@ export type HeaderProps = {
 export const Header = ({ title }: HeaderProps) => {
   return (
     <Styled.Header>
-      <Image src="/./images/cabin.svg" alt="cabin" width={50} height={50} />
+      <Image src="/./images/logo4.png" alt="logo" width={80} height={50} />
+
       <h2>{title ? title : 'Nossa Casa'}</h2>
     </Styled.Header>
   );

@@ -9,18 +9,25 @@ export const Header = styled.div`
     align-items: bottom;
     justify-content: center;
     width: 100%;
-    padding: 16px 20px;
+    height: 95px;
+    padding: 10px 20px;
 
     h2 {
       margin-left: 3%;
       margin-top: 5%;
       font-weight: 300;
       font-size: 38px;
+      position: absolute;
+      top: 10px;
+      right: 40px;
     }
 
     img {
-      height: 55px;
-      width: 55px;
+      height: 90px;
+      width: 145px;
+      position: absolute;
+      top: 0px;
+      left: 25px;
     }
 
     /* @media ${theme.media.monitor} {

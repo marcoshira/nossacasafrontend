@@ -1,13 +1,14 @@
 export const theme = {
   colors: {
     primary: '7DBBC3',
-    secondary: ' #fdd09c',
-    autumn: '#E09F3E',
-    darkautumn: '#B37F31',
+    secondary: ' #54426B',
+    autumn: '#54426B',
+    darkautumn: '#54426B',
     backgroundwhite: '#EBEBEB',
     neutral: 'hsl(0, 6%, 24%)',
     white: '#FFFFFF',
-    mediumGray: '#DDDDDD',
+    gray: '#DDDDDD',
+    mediumGray: '#6c7171',
     crimson: 'crimson',
     blue: 'rgb(36, 36, 209)',
     navy: '#0A1128',

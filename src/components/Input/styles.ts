@@ -8,7 +8,7 @@ export const Input = styled.label`
     justify-content: left;
     align-items: bottom;
     margin-bottom: 20px;
-    background: ${theme.colors.mediumGray};
+    background: ${theme.colors.gray};
     padding: 22px 20px;
     width: 100%;
 
@@ -20,7 +20,7 @@ export const Input = styled.label`
     } */
 
     input {
-      background: ${theme.colors.mediumGray};
+      background: ${theme.colors.gray};
       border: none;
       font-family: inherit;
       font-size: 18px;

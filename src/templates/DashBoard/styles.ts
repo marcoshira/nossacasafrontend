@@ -17,7 +17,7 @@ export const DashBoarContentdWrapper = styled.div`
 
     .profile {
       position: relative;
-      height: 180px;
+      height: 160px;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -30,7 +30,7 @@ export const DashBoarContentdWrapper = styled.div`
 
       svg {
         height: 45px;
-        color: #6c7171;
+        color: ${theme.colors.mediumGray};
         position: absolute;
         top: 5px;
         right: 90px;
@@ -39,6 +39,13 @@ export const DashBoarContentdWrapper = styled.div`
         padding: 5px;
         background: ${theme.colors.white};
       }
+    }
+
+    .userName {
+      text-align: center;
+      font-size: 18px;
+      color: ${theme.colors.mediumGray};
+      margin-bottom: 20px;
     }
 
     .subtitle {

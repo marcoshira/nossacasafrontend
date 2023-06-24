@@ -11,6 +11,7 @@ import * as Styled from './styles';
 import { HomeCard } from '@/components/HomeCard';
 import Link from 'next/link';
 import Image from 'next/image';
+import { trueName } from '@/utils/truename';
 
 export type DashBoardProps = {
   onSignOut?: () => void;
@@ -29,6 +30,7 @@ export const DashBoard = ({ onSignOut, data }: DashBoardProps) => {
             height={150}
           />
         </Link>
+        <p className="userName">{trueName(data.user.name)}</p>
         <h2 className="subtitle">Suas Casas:</h2>
         {data.owned.length > 0 &&
           data.owned.map((home) => (
@@ -37,18 +39,18 @@ export const DashBoard = ({ onSignOut, data }: DashBoardProps) => {
             </Link>
           ))}
         <Link href="/create/home">
-          <HomeCard title={'Criar casa.'} type="none" child={<HomeAdd />} />
+          <HomeCard title={'Criar casa.'} type="guest" child={<HomeAdd />} />
         </Link>
 
         <h2 className="subtitle">Outras Casas:</h2>
         {data.guest.length > 0 ? (
           data.guest.map((home) => (
             <Link href={`/home/` + home.id}>
-              <HomeCard title={home.name} type="guest" />
+              <HomeCard title={home.name} type="owned" />
             </Link>
           ))
         ) : (
-          <HomeCard title={'Você não possui nenhuma casa.'} type="none" />
+          <HomeCard title={'Você não possui nenhuma casa.'} type="guest" />
         )}
         <Button
           onClick={onSignOut}
