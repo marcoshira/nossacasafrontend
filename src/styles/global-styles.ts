@@ -19,7 +19,7 @@ body{
   background-color: white;
   color: ${({ theme }) => theme.colors.black};
   font-weight: 400;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 h1, h2, h3, h4, h5, h6{

@@ -1,19 +1,20 @@
-import { UserProps } from './contexts/AuthContext';
-
-export type User = {
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    password: string;
-    created_at: string;
-    updated_at: string;
-    usersOnHomesId: string | null;
-    guestsOnHomesId: string | null;
-    friends: User[];
-  };
+export type AllUser = {
+  user: User;
   owned: Home[];
   guest: Home[];
+};
+
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  iconSrc: string;
+  password?: string;
+  created_at?: string;
+  updated_atw: string;
+  usersOnHomesId?: string | null;
+  guestsOnHomesId?: string | null;
+  friends?: User[];
 };
 
 export type Home = {
@@ -21,8 +22,8 @@ export type Home = {
   name: string;
   created_at: string;
   updated_at?: string;
-  owners?: UserProps[];
-  guests?: UserProps[];
+  owners?: User[];
+  guests?: User[];
   lists?: List[];
   notes?: Note[];
   recipes?: Recipe[];

@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 export const Header = styled.div`
   ${({ theme }) => css`
-    margin-bottom: 100px;
     background: ${theme.colors.secondary};
     display: flex;
     flex-direction: row;
@@ -13,13 +12,12 @@ export const Header = styled.div`
     padding: 10px 20px;
 
     h2 {
-      margin-left: 3%;
-      margin-top: 5%;
+      z-index: 2;
       font-weight: 300;
       font-size: 38px;
       position: absolute;
-      top: 10px;
-      right: 40px;
+      top: 30px;
+      right: 25px;
     }
 
     img {
@@ -27,7 +25,7 @@ export const Header = styled.div`
       width: 145px;
       position: absolute;
       top: 0px;
-      left: 25px;
+      left: 60px;
     }
 
     /* @media ${theme.media.monitor} {

@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import { canSSRAuth } from '../utils/canSSRAuth';
+import { Logout } from '@styled-icons/material-outlined/Logout';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { setupAPIClient } from '../services/api';
 import { GetServerSidePropsContext } from 'next';
-import { AllUser } from '@/sharedTypes';
+import { Home, User } from '@/sharedTypes';
 import { DashBoard } from '@/templates/DashBoard';
 
 export type DashboardIndexProps = {
-  data: AllUser;
+  data: User;
 };
 
 export default function Index({ data }: DashboardIndexProps) {

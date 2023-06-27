@@ -3,7 +3,7 @@ export const theme = {
     primary: '7DBBC3',
     secondary: ' #54426B',
     autumn: '#54426B',
-    darkautumn: '#54426B',
+    darkautumn: '#322740',
     backgroundwhite: '#EBEBEB',
     neutral: 'hsl(0, 6%, 24%)',
     white: '#FFFFFF',
@@ -24,6 +24,7 @@ export const theme = {
   font: {
     family: {
       default: "'Josefin Sans', sans-serif",
+      secondary: "'Josefin Slab', sans-serif",
     },
     sizes: {
       xsmall: '0.8rem',

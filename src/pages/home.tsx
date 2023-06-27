@@ -5,21 +5,21 @@ import { AuthContext } from '../contexts/AuthContext';
 import { setupAPIClient } from '../services/api';
 import { GetServerSidePropsContext } from 'next';
 import { AllUser } from '@/sharedTypes';
-import { DashBoard } from '@/templates/DashBoard';
+import { Home } from '@/templates/Home';
 
-export type DashboardIndexProps = {
+export type HomeIndexProps = {
   data: AllUser;
 };
 
-export default function Index({ data }: DashboardIndexProps) {
+export default function Index({ data }: HomeIndexProps) {
   const { signOut } = useContext(AuthContext);
 
   return (
     <>
       <Head>
-        <title>Dashboard</title>
+        <title>Home</title>
       </Head>
-      <DashBoard data={data} onSignOut={signOut} />
+      <Home data={data} onSignOut={signOut} />
     </>
   );
 }

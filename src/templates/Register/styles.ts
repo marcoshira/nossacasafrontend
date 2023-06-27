@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { Header } from '../../components/Header/styles';
 
 export const RegisterWrapper = styled.div`
   ${({ theme }) => css`
@@ -8,17 +7,13 @@ export const RegisterWrapper = styled.div`
       top: 30px;
       left: 15px;
       border-radius: 50%;
-      background: ${theme.colors.autumn};
+      background: ${theme.colors.darkautumn};
       padding: 5px;
 
       svg {
         height: 30px;
         color: white;
       }
-    }
-
-    ${Header} {
-      margin-bottom: 60px;
     }
   `}
 `;
