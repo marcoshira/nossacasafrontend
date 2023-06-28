@@ -45,7 +45,7 @@ export const MenuWrapper = styled.div`
 export const Button = styled.button`
   ${({ theme }) => css`
     z-index: 6;
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 25px;
     background: transparent;

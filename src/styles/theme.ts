@@ -20,6 +20,7 @@ export const theme = {
     yellow: 'rgb(207, 207, 45)',
     brown: 'rgb(116, 45, 45)',
     darkgrey: '#919191',
+    lightgray: '#D3D3D3',
   },
   font: {
     family: {

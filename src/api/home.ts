@@ -62,5 +62,13 @@ export const testhouse = {
       updated_at: '2023-06-26T16:53:02.348Z',
       homeId: '3700c07c-accf-4204-8613-3ef112392f77',
     },
+    {
+      id: '61260fc2-e3f7-4eb1-ac65-ed2da6fcbf9a',
+      name: 'Macarrão com molho Pesto',
+      description: 'Macarrãozinho com molho de manjericão e castanha.',
+      created_at: '2023-06-26T16:53:02.348Z',
+      updated_at: '2023-06-26T16:53:02.348Z',
+      homeId: '3700c07c-accf-4204-8613-3ef112392f77',
+    },
   ],
 } as Home;

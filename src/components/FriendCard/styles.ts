@@ -3,10 +3,16 @@ import styled, { css } from 'styled-components';
 export const FriendCardWrapper = styled.div`
   ${({ theme }) => css`
     white-space: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-top: 20px;
+    border-top: 1px solid ${theme.colors.white};
 
     img {
       border-radius: 50%;
-      margin: 0 10px;
     }
   `}
 `;
@@ -20,12 +26,12 @@ export const FriendNameWrapper = styled.div`
 
     p {
       text-align: center;
-      font-size: 20px;
-      margin: 7px 3px 0;
+      font-size: 28px;
+      margin: 7px 8px 0;
     }
     svg {
       height: 25px;
-      color: gold;
+      color: white;
     }
   `}
 `;

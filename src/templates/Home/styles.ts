@@ -15,10 +15,10 @@ export const Home = styled.div`
       }
     }
 
-    .Button {
+    /* .Button {
       top: 13px;
       left: 18px;
-    }
+    } */
 
     /* .Open {
       color: ${theme.colors.autumn};
@@ -32,18 +32,22 @@ export const Home = styled.div`
 
 export const HomeTitleContainer = styled.div`
   ${({ theme }) => css`
-    z-index: 4;
-    background: ${theme.colors.autumn};
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    height: 80px;
-    h1 {
-      margin-left: 35px;
-      text-align: center;
+    width: 100%;
+    align-items: center;
+    padding: 5%;
+    margin-top: 15px;
+
+    img {
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .homeName {
+      font-size: 36px;
       font-weight: 300;
-      font-size: 38px;
-      color: ${theme.colors.white};
     }
   `}
 `;
@@ -51,71 +55,96 @@ export const HomeTitleContainer = styled.div`
 export const HomeContainer = styled.div`
   ${({ theme }) => css`
     margin-top: 20px;
-    h3 {
-      font-size: 26px;
-      font-weight: 400;
-      margin-left: 5%;
+  `}
+`;
+
+export const ContentContainer = styled.div`
+  ${({ theme }) => css`
+    background: ${theme.colors.autumn};
+    border-radius: 15px;
+    margin: 3%;
+    padding: 20px;
+    color: white;
+
+    .section {
+      color: white;
+      font-size: 30px;
       margin-bottom: 15px;
-      color: ${theme.colors.autumn};
+    }
+  `}
+`;
+
+export const RecipesWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 15px;
+    padding: 15px 0;
+    background: ${theme.colors.darkautumn};
+
+    .AddRecipe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      padding: 15px;
+      position: relative;
+
+      svg {
+        height: 80px;
+      }
+
+      .Plus {
+        height: 30px;
+        position: absolute;
+        top: 15px;
+        left: 80px;
+        color: white;
+      }
+
+      h2 {
+        font-size: 28px;
+        color: ${theme.colors.white};
+        text-align: center;
+      }
     }
   `}
 `;
 
 export const ResidentsWrapper = styled.div`
   ${({ theme }) => css`
-    z-index: 3;
     display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    white-space: nowrap;
-    padding: 10px 20px 5px;
+    flex-direction: column;
+    padding: 20px;
     margin: 0 0 15px;
-    color: ${theme.colors.black};
+    border-radius: 15px;
+    background: ${theme.colors.darkautumn};
 
     .AddResident {
-      white-space: wrap;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 40px;
+      margin-bottom: 20px;
       svg {
-        height: 110px;
+        height: 90px;
         padding: 15px;
         border-radius: 50%;
-        margin-right: 10px;
-        background: ${theme.colors.gray};
-        color: ${theme.colors.darkgrey};
+
+        background: ${theme.colors.white};
+        color: ${theme.colors.autumn};
       }
 
       p {
         margin-top: 7px;
         text-align: center;
-        font-size: 20px;
-        margin-right: 10px;
+        font-size: 28px;
         width: 120px;
         margin-bottom: 0;
-        color: ${theme.colors.black};
+        color: white;
       }
-    }
-
-    /* width */
-    ::-webkit-scrollbar {
-      height: 10px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: transparent;
-      background-clip: content-box;
-      margin: 0 20px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: ${theme.colors.darkgrey};
-      border: 5px solid ${theme.colors.darkgrey};
-      border-radius: 15px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
     }
   `}
 `;

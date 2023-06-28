@@ -1,10 +1,17 @@
+import { PersonAdd } from '@styled-icons/fluentui-system-regular/PersonAdd';
+import { Food } from '@styled-icons/fluentui-system-regular/Food';
+import { Plus } from '@styled-icons/fa-solid/Plus';
+
+import Image from 'next/image';
+
 import { Home as HomeType } from '@/sharedTypes';
-import { Login } from '../Login';
-import * as Styled from './styles';
+
 import { Header } from '@/components/Header';
 import { Menu, MenuLink } from '@/components/Menu';
-import { PersonAdd } from '@styled-icons/fluentui-system-regular/PersonAdd';
 import { FriendCard } from '@/components/FriendCard';
+import { RecipeCard } from '@/components/RecipeCard';
+
+import * as Styled from './styles';
 
 type HomeProps = {
   onSignOut?: () => void;
@@ -28,22 +35,46 @@ export const Home = ({
   ] as MenuLink[];
   return (
     <Styled.Home>
-      <Styled.HomeTitleContainer>
-        <h1>{name}</h1>
-      </Styled.HomeTitleContainer>
       <Menu links={menuLinks} />
+      <Header />
+      <Styled.HomeTitleContainer>
+        <Image
+          src="/./homeicons/homeicon-1.png"
+          alt="homeIcon"
+          width={200}
+          height={200}
+        />
+        <h2 className="homeName">{name}</h2>
+      </Styled.HomeTitleContainer>
       <Styled.HomeContainer>
-        <h3 className="subtitle first">Moradores:</h3>
-        <Styled.ResidentsWrapper>
-          <div className="AddResident">
-            <PersonAdd />
-            <p className="userName">Adicionar morador</p>
-          </div>
-          {owners &&
-            owners.map((buddy) => {
-              return <FriendCard friend={buddy} owner={true} />;
-            })}
-        </Styled.ResidentsWrapper>
+        <Styled.ContentContainer>
+          <p className="section">Receitas :</p>
+          <Styled.RecipesWrapper>
+            <div className="AddRecipe">
+              <Food />
+              <Plus className="Plus" />
+              <h2>Adicionar receita</h2>
+            </div>
+            {recipes &&
+              recipes.map((recipe, index) => {
+                return <RecipeCard data={recipe} key={index} />;
+              })}
+          </Styled.RecipesWrapper>
+        </Styled.ContentContainer>
+
+        <Styled.ContentContainer>
+          <p className="section">Moradores ( {owners?.length} ) :</p>
+          <Styled.ResidentsWrapper>
+            <div className="AddResident">
+              <PersonAdd />
+              <p className="userName">Adicionar morador</p>
+            </div>
+            {owners &&
+              owners.map((buddy, index) => {
+                return <FriendCard friend={buddy} owner={true} key={index} />;
+              })}
+          </Styled.ResidentsWrapper>
+        </Styled.ContentContainer>
       </Styled.HomeContainer>
     </Styled.Home>
   );
