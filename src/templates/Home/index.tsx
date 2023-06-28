@@ -1,6 +1,7 @@
 import { PersonAdd } from '@styled-icons/fluentui-system-regular/PersonAdd';
 import { Food } from '@styled-icons/fluentui-system-regular/Food';
 import { Plus } from '@styled-icons/fa-solid/Plus';
+import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart';
 
 import Image from 'next/image';
 
@@ -12,6 +13,7 @@ import { FriendCard } from '@/components/FriendCard';
 import { RecipeCard } from '@/components/RecipeCard';
 
 import * as Styled from './styles';
+import { ShoppingList } from '@/components/ShoppingListCard';
 
 type HomeProps = {
   onSignOut?: () => void;
@@ -48,11 +50,29 @@ export const Home = ({
       </Styled.HomeTitleContainer>
       <Styled.HomeContainer>
         <Styled.ContentContainer>
+          <p className="section">Listas de Compras :</p>
+          <Styled.ListsWrapper>
+            <div className="AddList">
+              <div className="svgs">
+                <ShoppingCart />
+                <Plus className="Plus" />
+              </div>
+              <h2>Adicionar lista</h2>
+            </div>
+            {lists &&
+              lists.map((list, index) => {
+                return <ShoppingList data={list} key={index} />;
+              })}
+          </Styled.ListsWrapper>
+        </Styled.ContentContainer>
+        <Styled.ContentContainer>
           <p className="section">Receitas :</p>
           <Styled.RecipesWrapper>
             <div className="AddRecipe">
-              <Food />
-              <Plus className="Plus" />
+              <div className="svgs">
+                <Food />
+                <Plus className="Plus" />
+              </div>
               <h2>Adicionar receita</h2>
             </div>
             {recipes &&

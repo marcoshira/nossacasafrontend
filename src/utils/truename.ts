@@ -17,3 +17,14 @@ export function firstName(inputString: string): string {
 
   return firstPart;
 }
+
+export function formatReadableDate(dateString: string): string {
+  const date = new Date(dateString);
+  const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: 'numeric',
+  } as Intl.DateTimeFormatOptions;
+
+  return date.toLocaleDateString('pt-BR', options);
+}

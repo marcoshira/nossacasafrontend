@@ -26,6 +26,20 @@ export const testhouse = {
       updated_at: '2023-06-26T16:49:44.179Z',
       homeId: '3700c07c-accf-4204-8613-3ef112392f77',
     },
+    {
+      id: '3fc35e50-eca3-4d5b-a358-a67bb15285e1',
+      name: 'Compras para a festa',
+      created_at: '2023-06-26T16:49:44.179Z',
+      updated_at: '2023-06-26T16:49:44.179Z',
+      homeId: '3700c07c-accf-4204-8613-3ef112392f77',
+    },
+    {
+      id: '3fc35e50-eca3-4d5b-a358-a67bb15285e1',
+      name: 'Compras para fazer Parmegiana',
+      created_at: '2023-06-26T16:49:44.179Z',
+      updated_at: '2023-06-26T16:49:44.179Z',
+      homeId: '3700c07c-accf-4204-8613-3ef112392f77',
+    },
   ],
   notes: [
     {

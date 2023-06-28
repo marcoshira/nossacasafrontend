@@ -34,10 +34,10 @@ export const Menu = ({ links }: MenuProps) => {
         onClick={() => setVisible(!visible)}
       >
         <Styled.MenuWrapper>
-          {links.map((link) => {
+          {links.map((link, index) => {
             if (link.href) {
               return (
-                <Link href={link.href}>
+                <Link href={link.href} key={index}>
                   <p className="Link">{link.title}</p>
                 </Link>
               );
