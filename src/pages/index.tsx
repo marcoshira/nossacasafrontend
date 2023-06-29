@@ -6,7 +6,8 @@ import { canSSRGuest } from '@/utils/canSSRGuest';
 import { Profile } from '@/templates/Profile';
 import { testUser } from '@/api/user';
 import { Home } from '@/templates/Home';
-import { testhouse } from '@/api/home';
+import { testList, testhouse } from '@/api/home';
+import { ListTemplate } from '@/templates/List';
 
 export default function Index() {
   // const { signIn } = useContext(AuthContext);
@@ -17,7 +18,7 @@ export default function Index() {
         <title>Nossa Casa</title>
       </Head>
       {/* <Login onLogin={signIn} /> */}
-      <Home {...testhouse} />
+      <ListTemplate data={testList} />
     </>
   );
 }

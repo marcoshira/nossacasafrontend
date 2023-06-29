@@ -9,6 +9,7 @@ export const FriendCardWrapper = styled.div`
     justify-content: space-between;
     padding-right: 40px;
     padding-top: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid ${theme.colors.white};
 
     img {

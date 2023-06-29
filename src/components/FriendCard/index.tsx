@@ -14,7 +14,12 @@ export type FriendCardProps = {
 export const FriendCard = ({ friend, owner }: FriendCardProps) => {
   return (
     <Styled.FriendCardWrapper>
-      <Image src="/./icons/icon-laptop.png" alt="icon" width={90} height={90} />
+      <Image
+        src={`/./icons/${friend.iconSrc}.png`}
+        alt="icon"
+        width={90}
+        height={90}
+      />
 
       <Styled.FriendNameWrapper>
         <p>{firstName(friend.name)}</p>

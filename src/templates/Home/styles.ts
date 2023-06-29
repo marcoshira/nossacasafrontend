@@ -87,7 +87,7 @@ export const RecipesWrapper = styled.div`
     .AddRecipe {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       flex-direction: row;
       padding: 15px;
       position: relative;
@@ -129,7 +129,7 @@ export const ListsWrapper = styled.div`
     .AddList {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       flex-direction: row;
       padding: 15px;
 
@@ -158,12 +158,53 @@ export const ListsWrapper = styled.div`
   `}
 `;
 
+export const NotesWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 15px;
+    padding: 15px 0;
+    background: ${theme.colors.darkautumn};
+
+    .AddNote {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: row;
+      padding: 15px;
+
+      .svgs {
+        position: relative;
+        svg {
+          height: 65px;
+        }
+
+        .Plus {
+          height: 30px;
+          position: absolute;
+          top: -10px;
+          left: 60px;
+          color: white;
+        }
+      }
+
+      h2 {
+        font-size: 28px;
+        color: ${theme.colors.white};
+        text-align: center;
+        width: 180px;
+      }
+    }
+  `}
+`;
+
 export const ResidentsWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     padding: 20px;
-    margin: 0 0 15px;
+    padding-bottom: 0;
     border-radius: 15px;
     background: ${theme.colors.darkautumn};
 

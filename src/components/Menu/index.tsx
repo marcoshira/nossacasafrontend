@@ -43,7 +43,7 @@ export const Menu = ({ links }: MenuProps) => {
               );
             } else {
               return (
-                <a onClick={link.onClick}>
+                <a onClick={link.onClick} key={index}>
                   <p className="Link">{link.title}</p>
                 </a>
               );

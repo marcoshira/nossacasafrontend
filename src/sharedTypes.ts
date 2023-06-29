@@ -35,6 +35,17 @@ export type List = {
   created_at: string;
   updated_at: string;
   homeId: string;
+  items?: Item[];
+};
+
+export type Item = {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+  quantity?: string | null;
+  shoppingListId?: string | null;
+  recipeId?: string | null;
 };
 
 export type Note = {
@@ -42,8 +53,12 @@ export type Note = {
   title: string;
   created_at: string;
   updated_at: string;
-  homeId: string;
-  userId: string;
+  homeId?: string;
+  userId?: string;
+  user?: {
+    id: string;
+    name: string;
+  };
 };
 
 export type Recipe = {
@@ -53,4 +68,5 @@ export type Recipe = {
   created_at: string;
   updated_at: string;
   homeId: string;
+  items?: Item[];
 };
