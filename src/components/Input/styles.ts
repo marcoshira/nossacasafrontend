@@ -33,17 +33,6 @@ export const Input = styled.label`
       &:focus {
         outline: none;
       }
-
-      /* @media ${theme.media.monitor} {
-        font-size: 20px;
-        padding: 17px 31px;
-      }
-
-      @media ${theme.media.ipad} {
-        width: 70%;
-        padding: 20px 30px;
-        font-size: 22px;
-      } */
     }
 
     svg {

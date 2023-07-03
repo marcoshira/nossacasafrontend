@@ -13,13 +13,15 @@ export const ListEdit = ({ data, show }: ListEditProps) => {
       <Input value={data.name} />
       {data.items?.map((item, index) => {
         return (
-          <>
+          <div className="itemsEdit" key={index}>
             <h3>Item {index + 1}:</h3>
-            <h4>Nome:</h4>
-            <Input value={item.name} />
-            <h4>Quantidade:</h4>
-            <Input value={item.quantity ? item.quantity : ''} />
-          </>
+            <div className="items">
+              <h4>Nome:</h4>
+              <Input value={item.name} />
+              <h4>Quantidade:</h4>
+              <Input value={item.quantity ? item.quantity : ''} />
+            </div>
+          </div>
         );
       })}
     </Styled.ListEditWrapper>
