@@ -12,13 +12,6 @@ export const Input = styled.label`
     padding: 22px 20px;
     width: 100%;
 
-    /* @media ${theme.media.ipad} {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 100px;
-    } */
-
     input {
       background: ${theme.colors.gray};
       border: none;

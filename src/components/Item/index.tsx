@@ -7,8 +7,8 @@ export type ItemProps = {
 export const ItemComponent = ({ data }: ItemProps) => {
   return (
     <Styled.ItemWrapper>
-      <p>{data.name}</p>
-      <p>{data.quantity}</p>
+      <p className="itemName">{data.name}</p>
+      <p className="itemQtd">{data.quantity}</p>
     </Styled.ItemWrapper>
   );
 };
