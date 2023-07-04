@@ -12,7 +12,7 @@ export const LoginContentWrapper = styled.div`
     padding: 0% 5%;
 
     h1 {
-      margin-bottom: 70px;
+      margin: 70px 0;
       text-align: center;
       font-weight: 700;
       font-size: 40px;

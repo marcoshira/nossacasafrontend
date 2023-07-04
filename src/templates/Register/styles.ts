@@ -4,14 +4,15 @@ export const RegisterWrapper = styled.div`
   ${({ theme }) => css`
     .arrowBack {
       position: absolute;
-      top: 30px;
-      left: 15px;
+      z-index: 2;
+      top: 20px;
+      left: 20px;
       border-radius: 50%;
       background: ${theme.colors.darkautumn};
       padding: 5px;
 
       svg {
-        height: 30px;
+        height: 40px;
         color: white;
       }
     }
@@ -26,7 +27,7 @@ export const RegisterContentWrapper = styled.div`
     padding: 0% 5% 5%;
 
     h1 {
-      margin-bottom: 50px;
+      margin: 50px 0;
       text-align: center;
       font-weight: 700;
       font-size: 40px;

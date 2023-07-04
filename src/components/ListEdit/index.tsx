@@ -1,6 +1,7 @@
 import { List } from '@/sharedTypes';
 import * as Styled from './styles';
 import { Input } from '../Input';
+import { Trash, PlusSquareFill } from '@styled-icons/bootstrap';
 
 export type ListEditProps = {
   data: List;
@@ -10,11 +11,17 @@ export const ListEdit = ({ data, show }: ListEditProps) => {
   return (
     <Styled.ListEditWrapper show={show}>
       <h3>Nome:</h3>
-      <Input value={data.name} />
+
+      <Input value={data.name} child={<Trash />} />
+
       {data.items?.map((item, index) => {
         return (
           <div className="itemsEdit" key={index}>
-            <h3>Item {index + 1}:</h3>
+            <div className="title">
+              <h3>Item {index + 1}:</h3>
+              <Trash />
+            </div>
+
             <div className="items">
               <h4>Nome:</h4>
               <Input value={item.name} />
@@ -24,6 +31,12 @@ export const ListEdit = ({ data, show }: ListEditProps) => {
           </div>
         );
       })}
+      <div className="addItem">
+        <button>
+          <p>Adicionar Item</p>
+          <PlusSquareFill />
+        </button>
+      </div>
     </Styled.ListEditWrapper>
   );
 };

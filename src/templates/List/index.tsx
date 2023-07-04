@@ -16,7 +16,7 @@ export const ListTemplate = ({ data }: ListProps) => {
   return (
     <Styled.ListWrapper>
       <div className="arrowBack">
-        <Link href="/">
+        <Link href={`/home?id=${data.homeId}`} as={`/home/${data.homeId}`}>
           <ArrowBack />
         </Link>
       </div>

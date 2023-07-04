@@ -10,21 +10,20 @@ import { testList, testhouse } from '@/api/home';
 import { ListTemplate } from '@/templates/List';
 
 export default function Index() {
-  // const { signIn } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
 
   return (
     <>
       <Head>
         <title>Nossa Casa</title>
       </Head>
-      {/* <Login onLogin={signIn} /> */}
-      <ListTemplate data={testList} />
+      <Login onLogin={signIn} />
     </>
   );
 }
 
-// export const getServerSideProps = canSSRGuest(async (ctx) => {
-//   return {
-//     props: {},
-//   };
-// });
+export const getServerSideProps = canSSRGuest(async (ctx) => {
+  return {
+    props: {},
+  };
+});

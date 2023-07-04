@@ -8,25 +8,6 @@ import {
 export const Home = styled.div`
   ${({ theme }) => css`
     height: 100vh;
-    ${MenuContainer} {
-      background: ${theme.colors.autumn};
-      .Link {
-        color: ${theme.colors.white};
-      }
-    }
-
-    /* .Button {
-      top: 13px;
-      left: 18px;
-    } */
-
-    /* .Open {
-      color: ${theme.colors.autumn};
-    } */
-
-    .Close {
-      color: ${theme.colors.white};
-    }
   `}
 `;
 

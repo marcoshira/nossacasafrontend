@@ -1,14 +1,15 @@
 import Head from 'next/head';
-import { canSSRAuth } from '../utils/canSSRAuth';
+import { canSSRAuth } from '../../utils/canSSRAuth';
 import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContext';
-import { setupAPIClient } from '../services/api';
+import { AuthContext } from '../../contexts/AuthContext';
+import { setupAPIClient } from '../../services/api';
 import { GetServerSidePropsContext } from 'next';
-import { AllUser } from '@/sharedTypes';
+import { Home as HomeType } from '@/sharedTypes';
 import { Home } from '@/templates/Home';
+import { useRouter } from 'next/router';
 
 export type HomeIndexProps = {
-  data: AllUser;
+  data: HomeType;
 };
 
 export default function Index({ data }: HomeIndexProps) {
@@ -19,7 +20,7 @@ export default function Index({ data }: HomeIndexProps) {
       <Head>
         <title>Home</title>
       </Head>
-      <Home data={data} onSignOut={signOut} />
+      <Home {...data} onSignOut={signOut} />
     </>
   );
 }
@@ -28,7 +29,15 @@ export const getServerSideProps = canSSRAuth(
   async (ctx: GetServerSidePropsContext) => {
     const apiClient = setupAPIClient(ctx);
 
-    const response = await apiClient.get('/user');
+    const { query } = ctx;
+
+    const id = query.id as string;
+
+    const response = await apiClient.get('/home/id', {
+      params: {
+        id: id,
+      },
+    });
 
     return {
       props: {

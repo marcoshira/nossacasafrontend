@@ -29,17 +29,44 @@ export const ListEditWrapper = styled.div<ShowList>`
     h3 {
       color: white;
       font-size: 26px;
-      margin: 0 30px 10px;
+      margin: 0 30px 20px;
     }
 
     ${Input} {
       background: ${theme.colors.autumn};
+      padding: 0 20px;
+      height: 80px;
+      align-items: center;
 
       input {
         background: ${theme.colors.autumn};
         color: ${theme.colors.white};
         margin-left: 10px;
         font-size: 28px;
+      }
+
+      svg {
+        color: ${theme.colors.white};
+        min-height: 40px;
+        min-width: 40px;
+      }
+    }
+
+    .title {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: center;
+      margin: 0 30px 20px;
+      h3 {
+        color: white;
+        font-size: 26px;
+        margin: 0;
+      }
+      svg {
+        height: 35px;
+        color: white;
+        margin-left: 15px;
       }
     }
 
@@ -70,6 +97,36 @@ export const ListEditWrapper = styled.div<ShowList>`
           margin-right: 0px;
           font-size: 26px;
           width: 100%;
+        }
+      }
+    }
+
+    .addItem {
+      width: 100%;
+      padding: 5%;
+
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        background: ${theme.colors.autumn};
+        color: white;
+        width: 100%;
+        height: 70px;
+        padding-bottom: 20px;
+        border: none;
+        border-radius: 15px;
+
+        p {
+          font-size: 26px;
+          font-family: ${theme.font.family.default};
+          margin-right: 20px;
+        }
+
+        svg {
+          height: 35px;
+          border-radius: 5px;
         }
       }
     }

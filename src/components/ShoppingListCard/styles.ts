@@ -6,6 +6,9 @@ export const ShoppingListWrapper = styled.div`
     padding: 20px 0;
     border-top: 1px solid white;
 
+    a {
+      text-decoration: none;
+    }
     h3 {
       font-size: 28px;
       color: white;
