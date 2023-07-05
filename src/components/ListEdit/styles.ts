@@ -32,7 +32,7 @@ export const ListEditWrapper = styled.div<ShowList>`
       margin: 0 30px 20px;
     }
 
-    ${Input} {
+    label {
       background: ${theme.colors.autumn};
       padding: 0 20px;
       height: 80px;
@@ -86,7 +86,7 @@ export const ListEditWrapper = styled.div<ShowList>`
         margin-bottom: 10px;
       }
 
-      ${Input} {
+      label {
         background: ${theme.colors.gray};
         border-radius: 15px;
         padding: 15px 20px;
@@ -103,16 +103,20 @@ export const ListEditWrapper = styled.div<ShowList>`
 
     .addItem {
       width: 100%;
-      padding: 5%;
+
+      .itemAdded {
+        margin: 40px 0;
+      }
 
       button {
+        margin: 5%;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: flex-end;
         background: ${theme.colors.autumn};
         color: white;
-        width: 100%;
+        width: 90%;
         height: 70px;
         padding-bottom: 20px;
         border: none;

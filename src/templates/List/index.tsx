@@ -12,11 +12,15 @@ export type ListProps = {
 };
 export const ListTemplate = ({ data }: ListProps) => {
   const [showEdit, setShowEdit] = useState(false);
+  const [shopList, setShopList] = useState<List>(data);
 
   return (
     <Styled.ListWrapper>
       <div className="arrowBack">
-        <Link href={`/home?id=${data.homeId}`} as={`/home/${data.homeId}`}>
+        <Link
+          href={`/home?id=${shopList.homeId}`}
+          as={`/home/${shopList.homeId}`}
+        >
           <ArrowBack />
         </Link>
       </div>
@@ -24,16 +28,16 @@ export const ListTemplate = ({ data }: ListProps) => {
 
       <Styled.ListContainer>
         <a className="titleContainer" onClick={() => setShowEdit(!showEdit)}>
-          <h2>{data.name}</h2>
+          <h2>{shopList.name}</h2>
           <ModeEdit />
         </a>
         <div className="list">
-          {data.items?.map((item, index) => {
+          {shopList.items?.map((item, index) => {
             return <ItemComponent data={item} key={index} />;
           })}
         </div>
       </Styled.ListContainer>
-      <ListEdit data={data} show={showEdit} />
+      <ListEdit data={shopList} show={showEdit} onEdit={setShopList} />
     </Styled.ListWrapper>
   );
 };

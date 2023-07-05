@@ -16,6 +16,7 @@ export type UserProps = {
   id: string;
   name: string;
   email: string;
+  mainHome: string | null;
 };
 
 type AuthProviderProps = {
@@ -27,6 +28,7 @@ export const AuthContext = createContext({} as AuthContextData);
 export function signOut() {
   try {
     destroyCookie(undefined, '@nextauth.token');
+    destroyCookie(undefined, '@nextauth.mainHome');
     Router.push('/');
   } catch {
     console.log('erro ao deslogar');
@@ -39,6 +41,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     const { '@nextauth.token': token } = parseCookies();
+    const { '@nextauth.mainHome': mainHome } = parseCookies();
 
     if (token) {
       api
@@ -46,12 +49,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
         .then((response) => {
           const { user } = response.data;
 
-          const { id, name, email } = user;
+          const { id, name, email, mainHome } = user;
 
           setUser({
             id,
             name,
             email,
+            mainHome,
           });
         })
         .catch(() => {
@@ -67,9 +71,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
         password,
       });
 
-      const { id, name, token } = response.data;
+      const { id, name, token, mainHome } = response.data;
 
       setCookie(undefined, '@nextauth.token', token, {
+        maxAge: 3600 * 24 * 30,
+        path: '/',
+      });
+
+      setCookie(undefined, '@nextauth.mainHome', mainHome, {
         maxAge: 3600 * 24 * 30,
         path: '/',
       });
@@ -78,11 +87,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
         id,
         name,
         email,
+        mainHome,
       });
 
       api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-      Router.push('/dashboard');
+      console.log(`alo: ${mainHome}`);
+      if (mainHome) {
+        Router.push(`/home/${mainHome}`);
+      } else {
+        Router.push('/dashboard');
+      }
     } catch (err) {
       console.log(err);
     }

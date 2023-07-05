@@ -14,6 +14,14 @@ export function canSSRGuest<P extends { [key: string]: any }>(
     const cookies = parseCookies(ctx);
 
     if (cookies['@nextauth.token']) {
+      if (cookies['@nextauth.mainHome']) {
+        return {
+          redirect: {
+            destination: `/home/${cookies['@nextauth.mainHome']}`,
+            permanent: false,
+          },
+        };
+      }
       return {
         redirect: {
           destination: '/dashboard',

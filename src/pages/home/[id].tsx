@@ -6,7 +6,6 @@ import { setupAPIClient } from '../../services/api';
 import { GetServerSidePropsContext } from 'next';
 import { Home as HomeType } from '@/sharedTypes';
 import { Home } from '@/templates/Home';
-import { useRouter } from 'next/router';
 
 export type HomeIndexProps = {
   data: HomeType;

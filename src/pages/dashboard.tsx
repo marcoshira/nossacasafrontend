@@ -1,9 +1,11 @@
 import Head from 'next/head';
-import { canSSRAuth } from '../utils/canSSRAuth';
+import { GetServerSidePropsContext } from 'next';
 import { useContext } from 'react';
+
+import { canSSRAuth } from '../utils/canSSRAuth';
 import { AuthContext } from '../contexts/AuthContext';
 import { setupAPIClient } from '../services/api';
-import { GetServerSidePropsContext } from 'next';
+
 import { AllUser } from '@/sharedTypes';
 import { DashBoard } from '@/templates/DashBoard';
 
