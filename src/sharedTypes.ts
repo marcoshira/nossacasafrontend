@@ -41,8 +41,8 @@ export type List = {
 export type Item = {
   id: string;
   name: string;
-  created_at: string;
-  updated_at: string;
+  created_at?: string;
+  updated_at?: string;
   quantity?: string | null;
   shoppingListId?: string | null;
   recipeId?: string | null;

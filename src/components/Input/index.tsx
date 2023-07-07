@@ -8,6 +8,7 @@ export type InputProps = {
   OnChange?: (value: string) => void;
   child?: React.ReactElement;
   value?: string;
+  prefilled?: boolean;
   reference?: HTMLInputElement | null;
 } & InputHTMLAttributes<HTMLInputElement>;
 
@@ -18,6 +19,7 @@ export const Input = ({
   child,
   value = '',
   reference = null,
+  prefilled = true,
 }: InputProps) => {
   const inputRef = useRef(reference);
 
@@ -31,7 +33,7 @@ export const Input = ({
     }
   };
 
-  return (
+  return prefilled ? (
     <Styled.Input>
       {child}
       <input
@@ -40,6 +42,17 @@ export const Input = ({
         onChange={handleChange}
         ref={inputRef}
         defaultValue={value}
+      />
+    </Styled.Input>
+  ) : (
+    <Styled.Input>
+      {child}
+      <input
+        placeholder={placeholder}
+        type={type}
+        onChange={handleChange}
+        ref={inputRef}
+        value={value}
       />
     </Styled.Input>
   );

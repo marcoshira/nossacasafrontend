@@ -1,17 +1,41 @@
 import styled, { css } from 'styled-components';
 import { Input } from '../Input/styles';
 
-type ShowList = {
-  show?: boolean;
-};
-
 const showList = () => css`
   visibility: visible;
   transform: translateY(00%);
 `;
 
+type ShowList = {
+  show?: boolean;
+};
+
+// const deletedItem = (array: number[]) => {
+//   const interpolations = array.map(
+//     (num) => css`
+//       .itemsEdit:nth-of-type(${num}) {
+//         height: 0;
+//         visibility: hidden;
+//       }
+//     `,
+//   );
+
+//   return css`
+//     ${interpolations}
+//   `;
+// };
+
 export const ListEditWrapper = styled.div<ShowList>`
   ${({ theme, show }) => css`
+    @keyframes reduceHeight {
+      0% {
+        transform: translateY(360px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
     visibility: hidden;
     position: absolute;
     top: 165px;
@@ -72,8 +96,14 @@ export const ListEditWrapper = styled.div<ShowList>`
 
     .itemsEdit {
       margin-top: 35px;
+      transition: ${theme.transitions.fast};
     }
-
+    .slide-up {
+      animation-name: reduceHeight;
+      animation-duration: 300ms; /* Duration of the animation */
+      animation-timing-function: ease; /* Easing function */
+      /* Other styles for the div */
+    }
     .items {
       margin: 20px 25px;
       padding: 25px;
@@ -133,6 +163,18 @@ export const ListEditWrapper = styled.div<ShowList>`
           border-radius: 5px;
         }
       }
+    }
+
+    .submit {
+      margin: 10px 5%;
+      width: 90%;
+      padding: 20px;
+      background: ${theme.colors.white};
+      color: ${theme.colors.autumn};
+      border: none;
+      border-radius: 15px;
+      font-size: 30px;
+      font-family: ${theme.font.family.default};
     }
   `}
 `;

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowBack, ModeEdit } from '@styled-icons/material-outlined';
 import { ListEdit } from '@/components/ListEdit';
+import { setupAPIClient } from '@/services/api';
 
 export type ListProps = {
   data: List;
@@ -13,6 +14,15 @@ export type ListProps = {
 export const ListTemplate = ({ data }: ListProps) => {
   const [showEdit, setShowEdit] = useState(false);
   const [shopList, setShopList] = useState<List>(data);
+
+  const handleSubmit = (list: List) => {
+    setShopList(list);
+    setShowEdit(false);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <Styled.ListWrapper>
@@ -37,7 +47,12 @@ export const ListTemplate = ({ data }: ListProps) => {
           })}
         </div>
       </Styled.ListContainer>
-      <ListEdit data={shopList} show={showEdit} onEdit={setShopList} />
+      <ListEdit
+        data={shopList}
+        show={showEdit}
+        onEdit={setShopList}
+        onSubmit={handleSubmit}
+      />
     </Styled.ListWrapper>
   );
 };
