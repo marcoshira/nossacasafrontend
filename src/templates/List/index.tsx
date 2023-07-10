@@ -1,4 +1,4 @@
-import { List } from '@/sharedTypes';
+import { Item, List } from '@/sharedTypes';
 import * as Styled from './styles';
 import { Header } from '@/components/Header';
 import { ItemComponent } from '@/components/Item';
@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowBack, ModeEdit } from '@styled-icons/material-outlined';
 import { ListEdit } from '@/components/ListEdit';
-import { setupAPIClient } from '@/services/api';
 
 export type ListProps = {
   data: List;
@@ -16,7 +15,9 @@ export const ListTemplate = ({ data }: ListProps) => {
   const [shopList, setShopList] = useState<List>(data);
 
   const handleSubmit = (list: List) => {
-    setShopList(list);
+    const updatedShopList = list;
+    setShopList(updatedShopList);
+
     setShowEdit(false);
     window.scrollTo({
       top: 0,
@@ -47,12 +48,7 @@ export const ListTemplate = ({ data }: ListProps) => {
           })}
         </div>
       </Styled.ListContainer>
-      <ListEdit
-        data={shopList}
-        show={showEdit}
-        onEdit={setShopList}
-        onSubmit={handleSubmit}
-      />
+      <ListEdit data={shopList} show={showEdit} onSubmit={handleSubmit} />
     </Styled.ListWrapper>
   );
 };

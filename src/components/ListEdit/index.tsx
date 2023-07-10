@@ -8,10 +8,9 @@ import { setupAPIClient } from '@/services/api';
 export type ListEditProps = {
   data: List;
   show: boolean;
-  onEdit?: (data: List) => void;
   onSubmit?: (data: List) => void;
 };
-export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
+export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
   const [tempId, setTempId] = useState('0');
   const [list, setList] = useState<List>(data);
   const [listName, setListName] = useState(data.name);
@@ -23,20 +22,14 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
   const [slideUp, setSlideUp] = useState<number>();
 
   useEffect(() => {
-    if (onEdit) {
-      onEdit(list);
-    }
-  }, [list]);
+    setList(data);
+  }, [data]);
 
   const handleClick = async () => {
     try {
       const apiClient = setupAPIClient(undefined);
 
-      console.log(itemsToAdd);
-      console.log('//');
-      console.log(itemsToEdit);
-
-      await apiClient.put(
+      const newList = await apiClient.put(
         '/list',
         {
           name: listName,
@@ -48,9 +41,14 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
       );
 
       if (onSubmit) {
-        onSubmit(list);
+        onSubmit(newList.data);
       }
 
+      // if (data.items) {
+      //   data.items.map((item) => {
+      //     console.log(item.name);
+      //   });
+      // }
       setList(data);
       setListName(list.name);
       setItemsToEdit([]);
@@ -61,7 +59,7 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
     }
   };
 
-  const handleInputNameChange = (val: string, index: number) => {
+  const handleInputNameChange = (val: string, index: number, id: string) => {
     if (list.items) {
       const updatedListItems = [...list.items];
       updatedListItems[index].name = val;
@@ -71,17 +69,26 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
 
       setList(updatedList);
 
-      const updatedItemsToEdit = itemsToEdit;
-      updatedItemsToEdit.push({
-        id: list.items[index].id,
-        name: val,
-        quantity: list.items[index].quantity,
-      });
-      setItemsToEdit(updatedItemsToEdit);
+      const updatedItemsToAdd = itemsToAdd;
+
+      const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
+
+      if (itemAlreadyAdded) {
+        itemAlreadyAdded.name = val;
+        setItemsToAdd(updatedItemsToAdd);
+      } else {
+        const updatedItemsToEdit = itemsToEdit;
+        updatedItemsToEdit.push({
+          id: list.items[index].id,
+          name: val,
+          quantity: list.items[index].quantity,
+        });
+        setItemsToEdit(updatedItemsToEdit);
+      }
     }
   };
 
-  const handleInputQtdChange = (val: string, index: number) => {
+  const handleInputQtdChange = (val: string, index: number, id: string) => {
     if (list.items) {
       const updatedListItems = [...list.items];
       updatedListItems[index].quantity = val;
@@ -91,13 +98,22 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
 
       setList(updatedList);
 
-      const updatedItemsToEdit = itemsToEdit;
-      updatedItemsToEdit.push({
-        id: list.items[index].id,
-        name: list.items[index].name,
-        quantity: val,
-      });
-      setItemsToEdit(updatedItemsToEdit);
+      const updatedItemsToAdd = itemsToAdd;
+
+      const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
+
+      if (itemAlreadyAdded) {
+        itemAlreadyAdded.quantity = val;
+        setItemsToAdd(updatedItemsToAdd);
+      } else {
+        const updatedItemsToEdit = itemsToEdit;
+        updatedItemsToEdit.push({
+          id: list.items[index].id,
+          name: list.items[index].name,
+          quantity: val,
+        });
+        setItemsToEdit(updatedItemsToEdit);
+      }
     }
   };
 
@@ -143,15 +159,29 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
       setList(updatedList);
     }
 
-    const updatedItemsToDel = itemsToDel;
-    updatedItemsToDel.push(id);
-    setItemsToDel(updatedItemsToDel);
+    const updatedItemsToAdd = itemsToAdd;
+
+    const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
+
+    if (itemAlreadyAdded) {
+      console.log('item already added');
+      const indexToDel = updatedItemsToAdd.findIndex((obj) => obj.id === id);
+      updatedItemsToAdd.splice(indexToDel, 1);
+      setItemsToAdd(updatedItemsToAdd);
+    } else {
+      const updatedItemsToDel = itemsToDel;
+      updatedItemsToDel.push(id);
+      setItemsToDel(updatedItemsToDel);
+    }
 
     setSlideUp(index);
+    setTimeout(() => {
+      setSlideUp(undefined);
+    }, 320);
   };
 
   return (
-    <Styled.ListEditWrapper show={show}>
+    <Styled.ListEditWrapper show={show} className={slideUp ? 'extraPad' : ''}>
       <h3>Nome:</h3>
 
       <Input
@@ -182,20 +212,20 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
                 <h4>Nome:</h4>
                 <Input
                   value={item.name}
-                  OnChange={(val) => handleInputNameChange(val, index)}
+                  OnChange={(val) => handleInputNameChange(val, index, item.id)}
                 />
                 <h4>Quantidade:</h4>
                 <Input
                   value={item.quantity ? item.quantity : ''}
-                  OnChange={(val) => handleInputQtdChange(val, index)}
+                  OnChange={(val) => handleInputQtdChange(val, index, item.id)}
                 />
               </div>
             </div>
           );
         })}
 
-      <div className="addItem">
-        <div className="itemAdded slide-up">
+      <div className="addItem slide-up">
+        <div className="itemAdded">
           <div className="title">
             <h3>Adicionar Item:</h3>
           </div>
@@ -220,7 +250,7 @@ export const ListEdit = ({ data, show, onEdit, onSubmit }: ListEditProps) => {
           <PlusSquareFill />
         </button>
       </div>
-      <button onClick={handleClick} className="submit">
+      <button onClick={handleClick} className="submit slide-up">
         Salvar Mudanças
       </button>
     </Styled.ListEditWrapper>

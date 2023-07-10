@@ -27,7 +27,7 @@ type ShowList = {
 
 export const ListEditWrapper = styled.div<ShowList>`
   ${({ theme, show }) => css`
-    @keyframes reduceHeight {
+    @keyframes slideUp {
       0% {
         transform: translateY(360px);
       }
@@ -47,6 +47,10 @@ export const ListEditWrapper = styled.div<ShowList>`
     border-top-left-radius: 35px;
     width: 100%;
     transition: ${theme.transitions.slow};
+
+    &.extraPad {
+      padding-bottom: 395px;
+    }
 
     ${show && showList()}
 
@@ -99,7 +103,7 @@ export const ListEditWrapper = styled.div<ShowList>`
       transition: ${theme.transitions.fast};
     }
     .slide-up {
-      animation-name: reduceHeight;
+      animation-name: slideUp;
       animation-duration: 300ms; /* Duration of the animation */
       animation-timing-function: ease; /* Easing function */
       /* Other styles for the div */
@@ -133,6 +137,7 @@ export const ListEditWrapper = styled.div<ShowList>`
 
     .addItem {
       width: 100%;
+      transition: ${theme.transitions.fast};
 
       .itemAdded {
         margin: 40px 0;
