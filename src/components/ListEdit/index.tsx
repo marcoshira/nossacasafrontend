@@ -23,7 +23,7 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
 
   useEffect(() => {
     setList(data);
-  }, [data]);
+  }, [data, show]);
 
   const handleClick = async () => {
     try {
@@ -43,17 +43,20 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
       if (onSubmit) {
         onSubmit(newList.data);
       }
-
       // if (data.items) {
       //   data.items.map((item) => {
-      //     console.log(item.name);
+      //     console.log('name: ' + item.name);
+      //     console.log('quantity: ' + item.quantity);
       //   });
       // }
+      // console.log('///////////');
       setList(data);
       setListName(list.name);
       setItemsToEdit([]);
       setItemsToDel([]);
       setItemsToAdd([]);
+      setItemAddedName('');
+      setItemAddedQtd('');
     } catch (err) {
       console.log(err);
     }
@@ -62,14 +65,14 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
   const handleInputNameChange = (val: string, index: number, id: string) => {
     if (list.items) {
       const updatedListItems = [...list.items];
-      updatedListItems[index].name = val;
+      const updatedItem = { ...updatedListItems[index], name: val };
+      updatedListItems[index] = updatedItem;
 
-      const updatedList = list;
-      updatedList.items = updatedListItems;
+      const updatedList = { ...list, items: updatedListItems };
 
       setList(updatedList);
 
-      const updatedItemsToAdd = itemsToAdd;
+      const updatedItemsToAdd = [...itemsToAdd];
 
       const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
 
@@ -77,12 +80,20 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
         itemAlreadyAdded.name = val;
         setItemsToAdd(updatedItemsToAdd);
       } else {
-        const updatedItemsToEdit = itemsToEdit;
-        updatedItemsToEdit.push({
-          id: list.items[index].id,
-          name: val,
-          quantity: list.items[index].quantity,
-        });
+        const updatedItemsToEdit = [...itemsToEdit];
+        const itemAlreadyEdited = updatedItemsToEdit.findIndex(
+          (obj) => obj.id === id,
+        );
+
+        if (itemAlreadyEdited !== -1) {
+          updatedItemsToEdit[itemAlreadyEdited].name = val;
+        } else {
+          updatedItemsToEdit.push({
+            id: list.items[index].id,
+            name: val,
+            quantity: list.items[index].quantity,
+          });
+        }
         setItemsToEdit(updatedItemsToEdit);
       }
     }
@@ -91,14 +102,14 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
   const handleInputQtdChange = (val: string, index: number, id: string) => {
     if (list.items) {
       const updatedListItems = [...list.items];
-      updatedListItems[index].quantity = val;
+      const updatedItem = { ...updatedListItems[index], quantity: val };
+      updatedListItems[index] = updatedItem;
 
-      const updatedList = list;
-      updatedList.items = updatedListItems;
+      const updatedList = { ...list, items: updatedListItems };
 
       setList(updatedList);
 
-      const updatedItemsToAdd = itemsToAdd;
+      const updatedItemsToAdd = [...itemsToAdd];
 
       const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
 
@@ -106,13 +117,22 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
         itemAlreadyAdded.quantity = val;
         setItemsToAdd(updatedItemsToAdd);
       } else {
-        const updatedItemsToEdit = itemsToEdit;
-        updatedItemsToEdit.push({
-          id: list.items[index].id,
-          name: list.items[index].name,
-          quantity: val,
-        });
-        setItemsToEdit(updatedItemsToEdit);
+        const updatedItemsToEdit = [...itemsToEdit];
+        const itemAlreadyEdited = updatedItemsToEdit.findIndex(
+          (obj) => obj.id === id,
+        );
+
+        if (itemAlreadyEdited !== -1) {
+          updatedItemsToEdit[itemAlreadyEdited].quantity = val;
+          setItemsToEdit(updatedItemsToEdit);
+        } else {
+          updatedItemsToEdit.push({
+            id: list.items[index].id,
+            name: list.items[index].name,
+            quantity: val,
+          });
+          setItemsToEdit(updatedItemsToEdit);
+        }
       }
     }
   };
@@ -133,16 +153,13 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
       quantity: itemToAddQtd,
     };
 
-    const updatedItemsToAdd = itemsToAdd;
-    updatedItemsToAdd.push(itemToAdd);
+    const updatedItemsToAdd = [...itemsToAdd, itemToAdd];
     setItemsToAdd(updatedItemsToAdd);
 
     if (list.items) {
-      const updatedListItems = [...list.items];
-      updatedListItems.push(itemToAdd);
+      const updatedListItems = [...list.items, itemToAdd];
 
-      const updatedList = list;
-      updatedList.items = updatedListItems;
+      const updatedList = { ...list, items: updatedListItems };
 
       setList(updatedList);
     }
@@ -153,24 +170,19 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
       const updatedListItems = [...list.items];
       updatedListItems.splice(index, 1);
 
-      const updatedList = list;
-      updatedList.items = updatedListItems;
+      const updatedList = { ...list, items: updatedListItems };
 
       setList(updatedList);
     }
 
-    const updatedItemsToAdd = itemsToAdd;
+    const itemAlreadyAdded = itemsToAdd.findIndex((obj) => obj.id === id);
 
-    const itemAlreadyAdded = updatedItemsToAdd.find((obj) => obj.id === id);
-
-    if (itemAlreadyAdded) {
-      console.log('item already added');
-      const indexToDel = updatedItemsToAdd.findIndex((obj) => obj.id === id);
-      updatedItemsToAdd.splice(indexToDel, 1);
+    if (itemAlreadyAdded !== -1) {
+      const updatedItemsToAdd = [...itemsToAdd];
+      updatedItemsToAdd.splice(itemAlreadyAdded, 1);
       setItemsToAdd(updatedItemsToAdd);
     } else {
-      const updatedItemsToDel = itemsToDel;
-      updatedItemsToDel.push(id);
+      const updatedItemsToDel = [...itemsToDel, id];
       setItemsToDel(updatedItemsToDel);
     }
 

@@ -4,21 +4,21 @@ export const ButtonWrapper = styled.button`
   ${({ theme }) => css`
     background: ${theme.colors.autumn};
     color: white;
-    height: 75px;
+    height: 7.5rem;
     border: none;
     font-family: ${theme.font.family.default};
-    font-size: 26px;
+    font-size: 2.6rem;
     font-weight: 400;
     transition: ${theme.transitions.faster};
-    letter-spacing: 4px;
-    margin-top: 40px;
+    letter-spacing: 0.4rem;
+    margin-top: 4rem;
 
     svg {
-      height: 40px;
+      height: 4rem;
     }
 
     &:hover {
-      font-size: 32px;
+      font-size: 3.2rem;
     }
   `}
 `;

@@ -1,9 +1,4 @@
 import styled, { css } from 'styled-components';
-import {
-  Button,
-  MenuContainer,
-  MenuWrapper,
-} from '../../components/Menu/styles';
 
 export const Home = styled.div`
   ${({ theme }) => css`
@@ -19,15 +14,15 @@ export const HomeTitleContainer = styled.div`
     width: 100%;
     align-items: center;
     padding: 5%;
-    margin-top: 15px;
+    margin-top: 1.5rem;
 
     img {
       border-radius: 50%;
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
 
     .homeName {
-      font-size: 36px;
+      font-size: 3.6rem;
       font-weight: 300;
     }
   `}
@@ -35,23 +30,23 @@ export const HomeTitleContainer = styled.div`
 
 export const HomeContainer = styled.div`
   ${({ theme }) => css`
-    margin-top: 20px;
+    margin-top: 2rem;
   `}
 `;
 
 export const ContentContainer = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.autumn};
-    border-radius: 15px;
+    border-radius: 1.5rem;
     margin: 3%;
-    padding: 20px 15px 15px;
+    padding: 2rem 1.5rem 1.5rem;
     color: white;
 
     .section {
       color: white;
-      font-size: 30px;
-      margin-bottom: 15px;
-      margin-left: 8px;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      margin-left: 0.8rem;
     }
   `}
 `;
@@ -61,8 +56,8 @@ export const RecipesWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    border-radius: 15px;
-    padding: 15px 0;
+    border-radius: 1.5rem;
+    padding: 1.5rem 0;
     background: ${theme.colors.darkautumn};
 
     .AddRecipe {
@@ -70,29 +65,29 @@ export const RecipesWrapper = styled.div`
       align-items: center;
       justify-content: space-evenly;
       flex-direction: row;
-      padding: 15px;
+      padding: 1.5rem;
       position: relative;
 
       .svgs {
         position: relative;
         svg {
-          height: 80px;
+          height: 8rem;
         }
 
         .Plus {
-          height: 30px;
+          height: 3rem;
           position: absolute;
-          top: 0px;
-          left: 65px;
+          top: 0rem;
+          left: 6.5rem;
           color: white;
         }
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 2.8rem;
         color: ${theme.colors.white};
         text-align: center;
-        width: 200px;
+        width: 20rem;
       }
     }
   `}
@@ -103,8 +98,8 @@ export const ListsWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    border-radius: 15px;
-    padding: 15px 0;
+    border-radius: 1.5rem;
+    padding: 1.5rem 0;
     background: ${theme.colors.darkautumn};
 
     .AddList {
@@ -112,28 +107,28 @@ export const ListsWrapper = styled.div`
       align-items: center;
       justify-content: space-evenly;
       flex-direction: row;
-      padding: 15px;
+      padding: 1.5rem;
 
       .svgs {
         position: relative;
         svg {
-          height: 70px;
+          height: 7rem;
         }
 
         .Plus {
-          height: 30px;
+          height: 3rem;
           position: absolute;
-          top: -10px;
-          left: 60px;
+          top: -1rem;
+          left: 6rem;
           color: white;
         }
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 2.8rem;
         color: ${theme.colors.white};
         text-align: center;
-        width: 180px;
+        width: 18rem;
       }
     }
   `}
@@ -144,8 +139,8 @@ export const NotesWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    border-radius: 15px;
-    padding: 15px 0;
+    border-radius: 1.5rem;
+    padding: 1.5rem 0;
     background: ${theme.colors.darkautumn};
 
     .AddNote {
@@ -153,28 +148,28 @@ export const NotesWrapper = styled.div`
       align-items: center;
       justify-content: space-evenly;
       flex-direction: row;
-      padding: 15px;
+      padding: 1.5rem;
 
       .svgs {
         position: relative;
         svg {
-          height: 65px;
+          height: 6.5rem;
         }
 
         .Plus {
-          height: 30px;
+          height: 3rem;
           position: absolute;
-          top: -10px;
-          left: 60px;
+          top: -1rem;
+          left: 6rem;
           color: white;
         }
       }
 
       h2 {
-        font-size: 28px;
+        font-size: 2.8rem;
         color: ${theme.colors.white};
         text-align: center;
-        width: 180px;
+        width: 18rem;
       }
     }
   `}
@@ -184,9 +179,9 @@ export const ResidentsWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 2rem;
     padding-bottom: 0;
-    border-radius: 15px;
+    border-radius: 1.5rem;
     background: ${theme.colors.darkautumn};
 
     .AddResident {
@@ -194,11 +189,11 @@ export const ResidentsWrapper = styled.div`
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding-right: 40px;
-      margin-bottom: 20px;
+      padding-right: 4rem;
+      margin-bottom: 2rem;
       svg {
-        height: 90px;
-        padding: 8px;
+        height: 9rem;
+        padding: 0.8rem;
         border-radius: 50%;
 
         /* background: ${theme.colors.white}; */
@@ -206,10 +201,10 @@ export const ResidentsWrapper = styled.div`
       }
 
       p {
-        margin-top: 7px;
+        margin-top: 0.7rem;
         text-align: center;
-        font-size: 28px;
-        width: 120px;
+        font-size: 2.8rem;
+        width: 12rem;
         margin-bottom: 0;
         color: white;
       }

@@ -32,11 +32,11 @@ export const MenuWrapper = styled.div`
     flex-direction: column;
     a {
       text-decoration: none;
-      margin-bottom: 40px;
+      margin-bottom: 4rem;
       p {
         text-align: center;
         color: ${theme.colors.autumn};
-        font-size: 36px;
+        font-size: 3.6rem;
       }
     }
   `}
@@ -46,8 +46,8 @@ export const Button = styled.button`
   ${({ theme }) => css`
     z-index: 6;
     position: absolute;
-    top: 20px;
-    left: 25px;
+    top: 2rem;
+    left: 2.5rem;
     background: transparent;
     color: ${theme.colors.white};
     display: flex;
@@ -56,8 +56,8 @@ export const Button = styled.button`
     border: none;
 
     > svg {
-      width: 50px;
-      height: 50px;
+      width: 5rem;
+      height: 5rem;
     }
 
     .Close {

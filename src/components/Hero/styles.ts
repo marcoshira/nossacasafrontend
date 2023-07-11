@@ -21,7 +21,7 @@ export const Hero = styled.img`
       object-position: top;
 
       position: absolute;
-      top: 120px;
+      top: 12rem;
 
       &.mobile {
         display: block;
@@ -39,7 +39,7 @@ export const Hero = styled.img`
       object-position: right;
 
       position: absolute;
-      top: 85px;
+      top: 8.5rem;
 
       &.mobile {
         display: block;

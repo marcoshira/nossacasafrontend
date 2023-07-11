@@ -7,10 +7,10 @@ export const FriendCardWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid ${theme.colors.white};
+    padding-right: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 0.1rem solid ${theme.colors.white};
 
     img {
       border-radius: 50%;
@@ -27,11 +27,11 @@ export const FriendNameWrapper = styled.div`
 
     p {
       text-align: center;
-      font-size: 28px;
-      margin: 7px 8px 0;
+      font-size: 2.8rem;
+      margin: 0.7rem 0.8rem 0;
     }
     svg {
-      height: 25px;
+      height: 2.5rem;
       color: white;
     }
   `}

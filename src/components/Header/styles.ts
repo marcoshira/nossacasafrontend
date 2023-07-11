@@ -8,42 +8,24 @@ export const Header = styled.div`
     align-items: bottom;
     justify-content: center;
     width: 100%;
-    height: 95px;
-    padding: 10px 20px;
+    height: 9.5rem;
+    padding: 1rem 2rem;
 
     h2 {
       z-index: 2;
       font-weight: 300;
-      font-size: 38px;
+      font-size: 3.8rem;
       position: absolute;
-      top: 30px;
-      right: 25px;
+      top: 3rem;
+      right: 2.5rem;
     }
 
     img {
-      height: 90px;
-      width: 145px;
+      height: 9rem;
+      width: 14.5rem;
       position: absolute;
-      top: 0px;
-      left: 60px;
+      top: 0rem;
+      left: 6rem;
     }
-
-    /* @media ${theme.media.monitor} {
-      img {
-        height: 35px;
-        width: 175px;
-      }
-    }
-
-    @media ${theme.media.ipad} {
-      margin-bottom: 590px;
-      padding-top: 40px;
-      padding-left: 40px;
-
-      img {
-        height: 40px;
-        width: 200px;
-      }
-    } */
   `}
 `;

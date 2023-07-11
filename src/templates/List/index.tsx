@@ -15,8 +15,8 @@ export const ListTemplate = ({ data }: ListProps) => {
   const [shopList, setShopList] = useState<List>(data);
 
   const handleSubmit = (list: List) => {
-    const updatedShopList = list;
-    setShopList(updatedShopList);
+    const updatedShopList = { ...list };
+    setShopList({ ...updatedShopList });
 
     setShowEdit(false);
     window.scrollTo({

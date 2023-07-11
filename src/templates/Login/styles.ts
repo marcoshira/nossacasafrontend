@@ -12,29 +12,29 @@ export const LoginContentWrapper = styled.div`
     padding: 0% 5%;
 
     h1 {
-      margin: 70px 0;
+      margin: 7rem 0;
       text-align: center;
       font-weight: 700;
-      font-size: 40px;
+      font-size: 4rem;
     }
 
     .error {
-      font-size: 20px;
-      margin-top: 20px;
+      font-size: 2rem;
+      margin-top: 2rem;
     }
 
     .footer {
       position: absolute;
-      bottom: 60px;
+      bottom: 6rem;
       display: flex;
       flex-direction: row;
       align-content: center;
       justify-content: center;
       text-align: center;
-      font-size: 21px;
+      font-size: 2.1rem;
 
       a {
-        margin-left: 10px;
+        margin-left: 1rem;
         color: ${theme.colors.autumn};
         transition: ${theme.transitions.faster};
 

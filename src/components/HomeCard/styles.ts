@@ -16,27 +16,27 @@ export const HomeCardWrapper = styled.div<HouseType>`
     background-position-y: 0%;
     background-position-x: 95%;
 
-    height: 120px;
+    height: 12rem;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 1rem;
     position: relative;
 
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 
     h2 {
       position: absolute;
-      left: 15px;
-      bottom: 15px;
+      left: 1.5rem;
+      bottom: 1.5rem;
       font-weight: 200;
-      font-size: 36px;
+      font-size: 3.6rem;
       color: white;
     }
 
     svg {
       position: absolute;
-      right: 15px;
-      bottom: 15px;
-      height: 45px;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      height: 4.5rem;
       color: white;
     }
   `}

@@ -6,20 +6,20 @@ export const ProfileWrapper = styled.div`
     .arrowBack {
       z-index: 2;
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 2rem;
+      left: 2rem;
       border-radius: 50%;
       background: ${theme.colors.darkautumn};
-      padding: 5px;
+      padding: 0.5rem;
 
       svg {
-        height: 40px;
+        height: 4rem;
         color: white;
       }
     }
 
     ${Header} {
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
   `}
 `;
