@@ -1,10 +1,10 @@
-import { Item, List } from '@/sharedTypes';
+import { List } from '@/sharedTypes';
 import * as Styled from './styles';
 import { Header } from '@/components/Header';
 import { ItemComponent } from '@/components/Item';
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowBack, ModeEdit } from '@styled-icons/material-outlined';
+import { ArrowBack, ModeEdit, Close } from '@styled-icons/material-outlined';
 import { ListEdit } from '@/components/ListEdit';
 
 export type ListProps = {
@@ -12,7 +12,13 @@ export type ListProps = {
 };
 export const ListTemplate = ({ data }: ListProps) => {
   const [showEdit, setShowEdit] = useState(false);
+  const [touched, setTouched] = useState(false);
   const [shopList, setShopList] = useState<List>(data);
+
+  const handleShow = () => {
+    setShowEdit(!showEdit);
+    setTouched(true);
+  };
 
   const handleSubmit = (list: List) => {
     const updatedShopList = { ...list };
@@ -37,10 +43,16 @@ export const ListTemplate = ({ data }: ListProps) => {
       </div>
       <Header />
 
-      <Styled.ListContainer>
-        <a className="titleContainer" onClick={() => setShowEdit(!showEdit)}>
-          <h2>{shopList.name}</h2>
-          <ModeEdit />
+      <Styled.ListContainer show={showEdit}>
+        <a className="titleContainer" onClick={handleShow}>
+          <div className={showEdit ? 'hide' : touched ? 'show' : ''}>
+            <h2 className="main">{shopList.name}</h2>
+            <ModeEdit className="main" />
+          </div>
+          <div className={showEdit ? (touched ? 'show' : '') : 'hide'}>
+            <h2 className="discard">Descartar</h2>
+            <Close className="discard" />
+          </div>
         </a>
         <div className="list">
           {shopList.items?.map((item, index) => {

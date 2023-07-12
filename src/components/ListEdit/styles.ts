@@ -31,7 +31,7 @@ export const ListEditWrapper = styled.div<ShowList>`
     border-top-right-radius: 3.5rem;
     border-top-left-radius: 3.5rem;
     width: 100%;
-    transition: ${theme.transitions.slow};
+    transition: ${theme.transitions.normal};
 
     &.extraPad {
       padding-bottom: 39.5rem;

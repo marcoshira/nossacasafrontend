@@ -21,8 +21,24 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
   const [itemAddedQtd, setItemAddedQtd] = useState('');
   const [slideUp, setSlideUp] = useState<number>();
 
-  useEffect(() => {
+  const resetState = () => {
     setList(data);
+    setListName(data.name);
+    setItemsToDel([]);
+    setItemsToEdit([]);
+    setItemsToAdd([]);
+    setItemAddedName('');
+    setItemAddedQtd('');
+    setSlideUp(undefined);
+    if (list.items) {
+      list.items.map((item) => {
+        console.log(item.name);
+      });
+    }
+  };
+
+  useEffect(() => {
+    resetState();
   }, [data, show]);
 
   const handleClick = async () => {
@@ -43,13 +59,6 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
       if (onSubmit) {
         onSubmit(newList.data);
       }
-      // if (data.items) {
-      //   data.items.map((item) => {
-      //     console.log('name: ' + item.name);
-      //     console.log('quantity: ' + item.quantity);
-      //   });
-      // }
-      // console.log('///////////');
       setList(data);
       setListName(list.name);
       setItemsToEdit([]);
@@ -64,9 +73,12 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
 
   const handleInputNameChange = (val: string, index: number, id: string) => {
     if (list.items) {
-      const updatedListItems = [...list.items];
-      const updatedItem = { ...updatedListItems[index], name: val };
-      updatedListItems[index] = updatedItem;
+      const updatedItem = { ...list.items[index], name: val };
+      const updatedListItems = [
+        ...list.items.slice(0, index),
+        updatedItem,
+        ...list.items.slice(index + 1),
+      ];
 
       const updatedList = { ...list, items: updatedListItems };
 
@@ -101,9 +113,12 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
 
   const handleInputQtdChange = (val: string, index: number, id: string) => {
     if (list.items) {
-      const updatedListItems = [...list.items];
-      const updatedItem = { ...updatedListItems[index], quantity: val };
-      updatedListItems[index] = updatedItem;
+      const updatedItem = { ...list.items[index], quantity: val };
+      const updatedListItems = [
+        ...list.items.slice(0, index),
+        updatedItem,
+        ...list.items.slice(index + 1),
+      ];
 
       const updatedList = { ...list, items: updatedListItems };
 
@@ -247,11 +262,9 @@ export const ListEdit = ({ data, show, onSubmit }: ListEditProps) => {
             <Input
               value={itemAddedName}
               OnChange={(val) => setItemAddedName(val)}
-              prefilled={false}
             />
             <h4>Quantidade:</h4>
             <Input
-              prefilled={false}
               value={itemAddedQtd}
               OnChange={(val) => setItemAddedQtd(val)}
             />
